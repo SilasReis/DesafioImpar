@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #F6F4F6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 1746px;
+    background: #F6F4F6 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.header {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 1440px;
+    height: 64px;
+    background: transparent linear-gradient(272deg, #AE276F 0%, #5F1478 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+}
+
+.logo-teste {
+    position: absolute;
+    top: 14px;
+    left: 24px;
+    width: 192px;
+    height: 37px;
+    background: transparent url('../../assets/images/logo-teste.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.busca-fundo {
+    position: absolute;
+    top: 64px;
+    left: 0px;
+    width: 1440px;
+    height: 261px;
+    background: transparent url('../../assets/images/fundo-busca.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.busca-container {
+    position: absolute;
+    top: 147px;
+    left: 168px;
+    width: 1046px;
+    height: 75px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    transition: all 0.3s ease-out;
+}
+
+.busca-container:hover .busca-input::placeholder {
+    color: #3a3a3a;
+}
+
+.busca-container:hover .busca-input {
+    cursor: pointer;
+}
+
+.busca-input {
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    font-family: 'Muli', sans-serif;
+    font-size: 24px;
+    padding: 23px 680px 22px 28px;
+    width: 251px;
+    height: 30px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #757575;
+    opacity: 1;
+    transition: all 0.3s ease-out;
+}
+
+.busca-input::placeholder {
+    color: #757575;
+    transition: color 0.3s ease-out;
+}
+
+.busca-input:focus::placeholder {
+    opacity: 0;
+}
+
+.busca-button {
+    padding: 32px 25px;
+    border: none;
+    outline: none;
+    width: 49px;
+    height: 49px;
+    background: transparent url('../../assets/images/lupa.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.busca-button:hover {
+    cursor: pointer;
+}
+
+.resultado-busca {
+    position: absolute;
+    font-family: 'Muli', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    top: 400px;
+    left: 168px;
+    width: 291px;
+    height: 40px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(---cor-primaria);
+    text-align: left;
+    opacity: 1;
+}
+
+.novo-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 416px;
+    left: 1046px;
+    width: 173px;
+}
+
+.novo-button {
+    position: absolute;
+    width: 173px;
+    height: 48px;
+    background: #E76316 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #92207242;
+    border-radius: 8px;
+    opacity: 1;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.novo-label { 
+    color: var(---cor-branco);
+    text-align: left;
+    font-family: 'Muli', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0px;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.card-container {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 21px;
+    top: 500px;
+    left: 168px;
+    width: 1046px;
+}
+
+.card-container > * {
+    flex: 1 1 calc(25% - 16px);
+    box-sizing: border-box;
+}
