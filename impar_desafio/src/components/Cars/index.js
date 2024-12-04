@@ -7,17 +7,17 @@ import api from "../../services/api";
 export default function App() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [cards, setCards] = useState([]);
-    const [itemsToLoad, setItemsToLoad] = useState(10); // Começa com 10 itens
+    const [itemsToLoad, setItemsToLoad] = useState(10);
     const [searchTerm, setSearchTerm] = useState("");
     const [hasMore, setHasMore] = useState(true);
 
     useEffect(() => {
-        fetchCards(); // Carrega os itens inicialmente
+        fetchCards();
     }, [itemsToLoad]);
 
     useEffect(() => {
         if (searchTerm === "") {
-            resetPagination(); // Reseta a paginação quando o campo de busca está vazio
+            resetPagination();
         }
     }, [searchTerm]);
 
@@ -30,30 +30,26 @@ export default function App() {
     };
 
     const handleLoadMore = () => {
-        setItemsToLoad((prevItems) => prevItems + 10); // Incrementa os itens a carregar
+        setItemsToLoad((prevItems) => prevItems + 10);
     };
 
     const resetPagination = () => {
-        setItemsToLoad(10); // Reseta para 10 itens iniciais
-        setHasMore(true); // Reativa o botão "Ver Mais"
+        setItemsToLoad(10);
+        setHasMore(true);
         fetchCards();
     };
 
-    // Função para buscar os cards da API
     async function fetchCards() {
         try {
-            const response = await api.get(`/car?page=1&itens=${itemsToLoad}`); // Sempre começa da página 1
+            const response = await api.get(`/car?page=1&itens=${itemsToLoad}`);
             if (response.status === 200) {
                 const newCards = response.data;
 
-                // Se o número de itens retornados for menor que o esperado, desativa o botão "Ver Mais"
                 if (newCards.length < itemsToLoad) {
                     setHasMore(false);
                 } else {
                     setHasMore(true);
                 }
-
-                // Atualiza os cards com os dados da API
                 setCards(newCards);
             } else {
                 console.error("Erro ao buscar os cards da API");
@@ -73,7 +69,7 @@ export default function App() {
             const response = await api.get(`/car/GetByName/${searchTerm}`);
             if (response.status === 200) {
                 setCards(response.data);
-                setHasMore(false); // Busca por nome não deve ter paginação
+                setHasMore(false);
             } else {
                 console.error("Erro ao buscar os cards pelo nome");
             }
@@ -130,7 +126,6 @@ export default function App() {
                         Ver Mais
                     </button>
                 )}
-                {/* {!hasMore && <p>Não há mais itens para carregar.</p>} */}
             </div>
             <div id="modal-root"></div>
             <div id="modal-root-delete"></div>

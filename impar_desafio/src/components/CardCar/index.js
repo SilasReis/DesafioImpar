@@ -11,19 +11,19 @@ export default function Card({ idCard, name, photo, idPhoto, fetchCards }) {
     const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
 
     const handleOpenModal = () => {
-        setIsModalOpen(true); // Abre o modal
+        setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        setIsModalOpen(false); // Fecha o modal
+        setIsModalOpen(false);
     };
 
     const handleOpenModalDelete = () => {
-        setIsModalOpenDelete(true); // Abre o modal
+        setIsModalOpenDelete(true);
     };
 
     const handleCloseModalDelete = () => {
-        setIsModalOpenDelete(false); // Fecha o modal
+        setIsModalOpenDelete(false);
     };
 
     return (
@@ -58,9 +58,9 @@ export default function Card({ idCard, name, photo, idPhoto, fetchCards }) {
             <DeleteCarModal
                 isOpen={isModalOpenDelete}
                 onClose={handleCloseModalDelete}
+                fetchCards={fetchCards}
+                cardId={idCard}
             />
-
         </>
-
     );
 }

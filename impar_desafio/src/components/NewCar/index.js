@@ -9,10 +9,9 @@ export default function NewCarModal({ isOpen, onClose, fetchCards, cardId, cardN
     const [fileName, setFileName] = useState("Nenhum arquivo selecionado");
     const [fileBase64, setFileBase64] = useState("");
 
-    // Atualizar o estado `name` quando o modal abre e o `cardName` for fornecido
     useEffect(() => {
         if (isOpen && cardId) {
-            setName(cardName || ''); // Preenche o nome para edição
+            setName(cardName || ''); 
         }
     }, [isOpen, cardId, cardName]);
 
@@ -102,8 +101,8 @@ export default function NewCarModal({ isOpen, onClose, fetchCards, cardId, cardN
                             type="text"
                             placeholder="Digite o título"
                             className="modal-input"
-                            value={name} // Corrigido para usar o estado `name`
-                            onChange={(e) => setName(e.target.value)} // Atualiza o estado `name`
+                            value={name}
+                            onChange={(e) => setName(e.target.value)} 
                         />
                     </div>
                 </div>
@@ -134,6 +133,6 @@ export default function NewCarModal({ isOpen, onClose, fetchCards, cardId, cardN
                 </button>
             </div>
         </div>,
-        document.getElementById("modal-root") // Renderiza fora do fluxo do DOM principal
+        document.getElementById("modal-root") 
     );
 }
