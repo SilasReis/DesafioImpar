@@ -3,10 +3,12 @@ import './style.css';
 import TrashIcon from '../../assets/images/Icon-trash.png';
 import EditIcon from '../../assets/images/Icon-edit.png';
 import NewCarModal from "../NewCar";
+import DeleteCarModal from "../DeleteCar";
 
-export default function Card({ id, name, photo, fetchCards }) {
+export default function Card({ idCard, name, photo, idPhoto, fetchCards }) {
 
-    const [isModalOpen, setIsModalOpen] = useState(false); // Gerenciar o estado do modal
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
 
     const handleOpenModal = () => {
         setIsModalOpen(true); // Abre o modal
@@ -14,6 +16,14 @@ export default function Card({ id, name, photo, fetchCards }) {
 
     const handleCloseModal = () => {
         setIsModalOpen(false); // Fecha o modal
+    };
+
+    const handleOpenModalDelete = () => {
+        setIsModalOpenDelete(true); // Abre o modal
+    };
+
+    const handleCloseModalDelete = () => {
+        setIsModalOpenDelete(false); // Fecha o modal
     };
 
     return (
@@ -26,7 +36,7 @@ export default function Card({ id, name, photo, fetchCards }) {
                     {name}
                 </div>
                 <div className="card-actions">
-                    <button className="card-action-delete" onClick={() => console.log(`Excluir card com ID: ${id}`)}>
+                    <button className="card-action-delete" onClick={handleOpenModalDelete}>
                         <img src={TrashIcon} alt="Excluir" />
                         Excluir
                     </button>
@@ -40,7 +50,16 @@ export default function Card({ id, name, photo, fetchCards }) {
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
                 fetchCards={fetchCards}
+                cardId={idCard}
+                cardName={name}
+                idPhoto={idPhoto}
+                photo={photo}
             />
+            <DeleteCarModal
+                isOpen={isModalOpenDelete}
+                onClose={handleCloseModalDelete}
+            />
+
         </>
 
     );
